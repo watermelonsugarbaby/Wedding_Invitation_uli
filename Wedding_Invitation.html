@@ -404,15 +404,16 @@ setInterval(() => {
 
 }, 3000);
 
-// ambil parameter dari URL (?to=Nama)
 const urlParams = new URLSearchParams(window.location.search);
 let guest = urlParams.get('to');
 
 // kalau ada nama → tampilkan
-if(guest){
-  guest = decodeURIComponent(guest).replace(/\+/g, " ");
-  document.getElementById("guestName").innerText = guest.toUpperCase();
-} 
+if (guest) {
+  guest = guest.replace(/\+/g, " ");
+  document.getElementById("guestName").innerText = decodeURIComponent(guest).toUpperCase();
+} else {
+  document.getElementById("guestName").innerText = "TAMU UNDANGAN";
+}
 
   /* COUNTDOWN */
   let target=new Date('May 9, 2026').getTime();
